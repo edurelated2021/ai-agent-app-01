@@ -1,11 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const __filename = __filename || __filename;
-const __dirname = path.dirname(__filename);
-
-
-export function findProductsMatchingKeyWords(inputKeywords) {
+function findProductsMatchingKeyWords(inputKeywords) {
   const dbPath = path.join(__dirname, '../data', 'products.json');
   const productData = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
 
@@ -15,3 +11,5 @@ export function findProductsMatchingKeyWords(inputKeywords) {
 
   return matchedProducts;
 }
+
+module.exports = { findProductsMatchingKeyWords };
