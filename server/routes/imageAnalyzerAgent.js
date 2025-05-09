@@ -5,7 +5,7 @@ const path = require('path');
 const { OpenAI } = require('openai');
 
 const router = express.Router();
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'tmp/' });
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 router.post('/api/photo-analysis', upload.single('photo'), async (req, res) => {
