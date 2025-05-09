@@ -15,7 +15,7 @@ app.use(require('../routes/outdoorAdvisorAgent'));
 app.use(require('../routes/productRecommendationsAgent'));
 
 // Define a route
-app.get('/', (req, res) => {
+app.get('/hello', (req, res) => {
   res.send('Hello');
 });
 

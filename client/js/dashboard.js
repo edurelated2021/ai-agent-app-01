@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: 'POST',
-      url: '/api/chat',
+      url: 'https://ai-agent-app-01-iysi.vercel.app/chat',
       contentType: 'application/json',
       data: JSON.stringify({ question }),
       success: function (data) {
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: 'POST',
-      url: '/api/photo-analysis',
+      url: 'https://ai-agent-app-01-iysi.vercel.app/photo-analysis',
       data: formData,
       processData: false,
       contentType: false,
@@ -81,7 +81,7 @@ $(document).ready(function() {
     $('#outdoorLoader').show();                   // Show loader
     $('#outdoorSafetyResponse').removeClass('visible').html(''); // Reset output
     $.ajax({
-      url: '/api/outdoor-safety',
+      url: 'https://ai-agent-app-01-iysi.vercel.app/outdoor-safety',
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({
@@ -108,7 +108,7 @@ $(document).ready(function() {
 
     // Send query to the server
     $.ajax({
-      url: '/api/product-recommendations',
+      url: 'https://ai-agent-app-01-iysi.vercel.app/product-recommendations',
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({ query }),
