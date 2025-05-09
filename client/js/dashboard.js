@@ -35,7 +35,7 @@ $(document).ready(function() {
     e.preventDefault();
 
     const formData = new FormData(this);
-    $('#photoAnalysisResult').html('<em>Analyzing image...</em>');
+	$('#imageProcessingLoader').show();    
 
     $.ajax({
       type: 'POST',
@@ -44,6 +44,7 @@ $(document).ready(function() {
       processData: false,
       contentType: false,
       success: function (data) {
+		$('#imageProcessingLoader').hide();
         result = data.result.replace(/```html\s*/g, '').replace(/```/g, '');
         $('#photoAnalysisResult').html(result);
         const $img = $('#annotatableImage');
@@ -64,7 +65,8 @@ $(document).ready(function() {
         });
       },
       error: function () {
-        $('#photoAnalysisResult').html('<div class="alert alert-danger">Error analyzing the photo.</div>');
+		$('#imageProcessingLoader').hide();
+        $('#photoAnalysisResult').html('<div class="alert alert-danger">Error analyzing the photo. Please re-upload room image.</div>');
       }
     });
   });
