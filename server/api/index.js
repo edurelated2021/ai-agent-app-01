@@ -9,10 +9,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('./routes/chatAgent')); 
-app.use(require('./routes/imageAnalyzerAgent')); 
-app.use(require('./routes/outdoorAdvisorAgent'));
-app.use(require('./routes/productRecommendationsAgent'));
+app.use(require('../routes/chatAgent')); 
+app.use(require('../routes/imageAnalyzerAgent')); 
+app.use(require('../routes/outdoorAdvisorAgent'));
+app.use(require('../routes/productRecommendationsAgent'));
 
 // Define a route
 app.get('/', (req, res) => {
