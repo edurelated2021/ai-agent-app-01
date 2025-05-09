@@ -43,7 +43,7 @@ router.post('/api/product-recommendations', async (req, res) => {
   try {
     const { query } = req.body;
 
-    
+    console.log("Inside product-recommendations");
 
     // 1. Send the query and the supported keywords list to OpenAI for keyword extraction and tool name selection
     const prompt = `
@@ -98,6 +98,9 @@ router.post('/api/product-recommendations', async (req, res) => {
         { role: 'user', content: productDetailsPrompt }
       ]
     });
+	console.log("LLM response -------------------------------------------------- ");
+	console.log(productResponse);
+	console.log("--------------------------------------------------------------- ");
 
     // Return the formatted HTML response
     const formattedProducts = productResponse.output_text;

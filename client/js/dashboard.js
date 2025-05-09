@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: 'POST',
-      url: 'https://ai-agent-app-01-iysi.vercel.app/chat',
+      url: 'https://ai-agent-app-01-iysi.vercel.app/api/chat',
       contentType: 'application/json',
       data: JSON.stringify({ question }),
       success: function (data) {
@@ -27,7 +27,7 @@ $(document).ready(function() {
         $('#chatResponse').html('An error occurred while processing your question.').addClass('visible');
       }
     });
-  });
+  });	
 
 
   // Analyze Photo
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: 'POST',
-      url: 'https://ai-agent-app-01-iysi.vercel.app/photo-analysis',
+      url: 'https://ai-agent-app-01-iysi.vercel.app/api/photo-analysis',
       data: formData,
       processData: false,
       contentType: false,
@@ -81,7 +81,7 @@ $(document).ready(function() {
     $('#outdoorLoader').show();                   // Show loader
     $('#outdoorSafetyResponse').removeClass('visible').html(''); // Reset output
     $.ajax({
-      url: 'https://ai-agent-app-01-iysi.vercel.app/outdoor-safety',
+      url: 'https://ai-agent-app-01-iysi.vercel.app/api/outdoor-safety',
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({
@@ -108,7 +108,7 @@ $(document).ready(function() {
 
     // Send query to the server
     $.ajax({
-      url: 'https://ai-agent-app-01-iysi.vercel.app/product-recommendations',
+      url: 'https://ai-agent-app-01-iysi.vercel.app/api/product-recommendations',
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({ query }),
