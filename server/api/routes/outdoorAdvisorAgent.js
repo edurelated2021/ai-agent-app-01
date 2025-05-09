@@ -5,6 +5,7 @@ const { ChatPromptTemplate } = require('@langchain/core/prompts');
 
 router.post('/api/outdoor-safety', async (req, res) => {
   const { outdoorActivity, childAge } = req.body;
+  console.log("Inside outdoor-safety");
 
   const prompt = ChatPromptTemplate.fromMessages([
     ["system", `
@@ -18,8 +19,10 @@ router.post('/api/outdoor-safety', async (req, res) => {
 
       Be thoughtful and age-aware. Include risks like terrain, insects, dehydration, wildlife, and more.
       Provide suggestions using HTML formatting with <h3> for sections and <ul>/<li> for tips.
+	  
+	  If a question falls outside the domain of child safety, gently let the user know that your expertise is focused on child safety and suggest they ask a question within that area. Do not provide recommendations or information on unrelated topics. 
 
-      If the description is unclear or missing key details, politely ask for more information.
+      If the description is unclear or missing key details, politely ask for more information. 
     `],
     ["human", outdoorActivity]
   ]);
@@ -36,7 +39,7 @@ router.post('/api/outdoor-safety', async (req, res) => {
 
     let result = response.content || response.text || "";
     result = result.replace(/```html\s*/g, '').replace(/```/g, '');
-
+	console.log("Exiting outdoor-safety");
     res.json({ answer: result });
   } catch (err) {
     console.error('Outdoor Safety Error:', err);
