@@ -36,6 +36,7 @@ $(document).ready(function() {
 
     const formData = new FormData(this);
 	$('#imageProcessingLoader').show();    
+	$('#photoAnalysisResult').removeClass('visible').html('');
 
     $.ajax({
       type: 'POST',
@@ -107,6 +108,7 @@ $(document).ready(function() {
 
     // Show progress indicator
     $('#productLoader').show();
+	$('#productRecommendations').removeClass('visible').html(''); 
 
     // Send query to the server
     $.ajax({
